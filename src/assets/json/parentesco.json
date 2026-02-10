@@ -1,0 +1,30 @@
+[
+  {
+    "id": "padre",
+    "nombre": "Padre"
+  },
+  {
+    "id": "madre",
+    "nombre": "Madre"
+  },
+  {
+    "id": "tia",
+    "nombre": "Tía"
+  },
+  {
+    "id": "tio",
+    "nombre": "Tío"
+  },
+  {
+    "id": "abuelo",
+    "nombre": "Abuelo"
+  },
+  {
+    "id": "abuela",
+    "nombre": "Abuela"
+  },
+  {
+    "id": "Otro",
+    "nombre": "Otro"
+  }
+]
