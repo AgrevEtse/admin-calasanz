@@ -57,7 +57,7 @@ function Login() {
   return (
     <>
       <img
-        src='/EscudoGdM.png'
+        src='/EscudoCalasanz.png'
         className='w-42'
         alt=''
       />

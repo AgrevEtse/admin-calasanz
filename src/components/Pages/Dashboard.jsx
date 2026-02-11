@@ -18,7 +18,7 @@ const Dashboard = () => {
         Bienvenido al Dashboard, {auth.user.rol.toUpperCase()}
       </h2>
       <img
-        src='/EscudoGdM.png'
+        src='/EscudoCalasanz.png'
         className='w-2/5'
         alt='Escudo de la escuela Gómez de Mendiola'
       />

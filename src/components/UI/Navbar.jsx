@@ -49,9 +49,9 @@ const Navbar = () => {
         >
           <button
             className='btn btn-ghost text-xl transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
-            title='Admin Calasanz'
+            title='Calasanz Admin'
           >
-            Admin Calasanz
+            Calasanz Admin
           </button>
         </Link>
       </div>
@@ -60,9 +60,9 @@ const Navbar = () => {
         <Link to='/dashboard'>
           <button
             className='btn btn-ghost text-xl transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
-            title='Admin Calasanz'
+            title='Calasanz Admin'
           >
-            Admin Calasanz
+            Calasanz Admin
           </button>
         </Link>
       </div>

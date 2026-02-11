@@ -1,8 +1,8 @@
 export const cambiarTitulo = (titulo) => {
   if (!titulo) {
-    document.title = '? - Admin Calasanz'
+    document.title = '? - Calasanz Admin'
     return
   }
 
-  document.title = `${titulo} - Admin Calasanz`
+  document.title = `${titulo} - Calasanz Admin`
 }
