@@ -22,9 +22,10 @@ const EditInscripcion = () => {
   const [cicloAnnual, setCicloAnnual] = useState(
     '00000000-0000-0000-0000-000000000000'
   )
-  const [cicloBiannual, setCicloBiannual] = useState(
-    '00000000-0000-0000-0000-000000000001'
-  )
+  // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+  // const [cicloBiannual, setCicloBiannual] = useState(
+  //   '00000000-0000-0000-0000-000000000001'
+  // )
   const [isLoading, setIsLoading] = useState(false)
 
   const fetchActualCiclos = useCallback(async () => {
@@ -33,9 +34,10 @@ const EditInscripcion = () => {
       const dataCicloAnual = await resCicloAnnual.json()
       setCicloAnnual(dataCicloAnual.id)
 
-      const resCicloBiannual = await fetchWithAuth('/ciclo/semestre')
-      const dataCicloBiannual = await resCicloBiannual.json()
-      setCicloBiannual(dataCicloBiannual.id)
+      // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+      // const resCicloBiannual = await fetchWithAuth('/ciclo/semestre')
+      // const dataCicloBiannual = await resCicloBiannual.json()
+      // setCicloBiannual(dataCicloBiannual.id)
     } catch (error) {
       console.error(error)
       toast.error('Error al obtener los ciclos escolares')
@@ -149,10 +151,11 @@ const EditInscripcion = () => {
                           e.target.value,
                           getFirstGradoByEscolaridad(e.target.value)
                         ),
-                        id_ciclo:
-                          e.target.value === 'Bachillerato'
-                            ? cicloBiannual
-                            : cicloAnnual
+                        id_ciclo: cicloAnnual
+                        // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO Y QUITAR LO DE ARRIBA
+                        // e.target.value === 'Bachillerato'
+                        //   ? cicloBiannual
+                        //   : cicloAnnual
                       }
                     })
                   }}
@@ -166,7 +169,8 @@ const EditInscripcion = () => {
                   <option value='Preescolar'>Preescolar</option>
                   <option value='Primaria'>Primaria</option>
                   <option value='Secundaria'>Secundaria</option>
-                  <option value='Bachillerato'>Bachillerato</option>
+                  {/* // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO */}
+                  {/* <option value='Bachillerato'>Bachillerato</option> */}
                 </select>
               </label>
 
@@ -187,10 +191,11 @@ const EditInscripcion = () => {
                           prev.escolaridad,
                           e.target.value
                         ),
-                        id_ciclo:
-                          prev.escolaridad === 'Bachillerato'
-                            ? cicloBiannual
-                            : cicloAnnual
+                        id_ciclo: cicloAnnual
+                        // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO Y QUITAR LO DE ARRIBA
+                        // prev.escolaridad === 'Bachillerato'
+                        //   ? cicloBiannual
+                        //   : cicloAnnual
                       }
                     })
                   }}

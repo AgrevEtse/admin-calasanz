@@ -14,11 +14,13 @@ const CiclosAdmin = () => {
 
   const [ciclos, setCiclos] = useState([])
   const [cicloAnual, setCicloAnual] = useState(null)
-  const [cicloSemestral, setCicloSemestral] = useState(null)
+  // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+  // const [cicloSemestral, setCicloSemestral] = useState(null)
   const [newCiclo, setNewCiclo] = useState(DEFAULT_CICLO)
   const [isLoading, setIsLoading] = useState(false)
   const [newCicloAnual, setNewCicloAnual] = useState('')
-  const [newCicloSemestral, setNewCicloSemestral] = useState('')
+  // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+  // const [newCicloSemestral, setNewCicloSemestral] = useState('')
 
   const fetchCiclos = useCallback(async () => {
     setIsLoading(true)
@@ -31,12 +33,14 @@ const CiclosAdmin = () => {
       const dataCicloAnual = await resCicloAnual.json()
       setCicloAnual(dataCicloAnual)
 
-      const resCicloSemestral = await fetchWithAuth('/ciclo/semestre')
-      const dataCicloSemestral = await resCicloSemestral.json()
-      setCicloSemestral(dataCicloSemestral)
+      // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+      // const resCicloSemestral = await fetchWithAuth('/ciclo/semestre')
+      // const dataCicloSemestral = await resCicloSemestral.json()
+      // setCicloSemestral(dataCicloSemestral)
 
       setNewCicloAnual(dataCicloAnual.nombre)
-      setNewCicloSemestral(dataCicloSemestral.nombre)
+      // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+      // setNewCicloSemestral(dataCicloSemestral.nombre)
     } catch (error) {
       console.error('Error fetching ciclos:', error)
       toast.error('Error al cargar los ciclos.')
@@ -70,7 +74,9 @@ const CiclosAdmin = () => {
           ...newCiclo,
           fecha_inicio: createDateISOString(newCiclo.fecha_inicio),
           fecha_fin: createDateISOString(newCiclo.fecha_fin),
-          es_anual: Number(newCiclo.es_anual)
+          es_anual: Number(true)
+          // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO Y QUITAR EL DE ARRIBA
+          // es_anual: Number(newCiclo.es_anual)
         })
       })
 
@@ -94,7 +100,9 @@ const CiclosAdmin = () => {
     if (tipo !== 'anual' && tipo !== 'semestral') return
 
     setIsLoading(true)
-    const nombre = tipo === 'anual' ? newCicloAnual : newCicloSemestral
+    // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+    // const nombre = tipo === 'anual' ? newCicloAnual : newCicloSemestral
+    const nombre = newCicloAnual
     const es_anual = tipo === 'anual' ? 1 : 0
 
     try {
@@ -120,7 +128,8 @@ const CiclosAdmin = () => {
   }
 
   const annualCiclos = ciclos.filter((c) => c.es_anual)
-  const biannualCiclos = ciclos.filter((c) => !c.es_anual)
+  // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+  // const biannualCiclos = ciclos.filter((c) => !c.es_anual)
 
   return (
     <div className='mt-10 flex h-full flex-col items-center justify-center space-y-6'>
@@ -132,7 +141,8 @@ const CiclosAdmin = () => {
         {isLoading ? (
           <>
             <CiclosSectionSkeleton />
-            <CiclosSectionSkeleton />
+            {/* // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO */}
+            {/* <CiclosSectionSkeleton /> */}
           </>
         ) : (
           <>
@@ -144,7 +154,9 @@ const CiclosAdmin = () => {
                 </p>
               </div>
             </div>
-            <div className='card w-xs border bg-red-500'>
+
+            {/* // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO */}
+            {/* <div className='card w-xs border bg-red-500'>
               <div className='card-body'>
                 <h2 className='card-title justify-center'>Ciclo Semestral</h2>
                 <p className='text-center'>
@@ -153,7 +165,7 @@ const CiclosAdmin = () => {
                     : 'No hay ciclo semestral actual'}
                 </p>
               </div>
-            </div>
+            </div> */}
           </>
         )}
       </div>
@@ -161,11 +173,12 @@ const CiclosAdmin = () => {
       <div className='divider'></div>
 
       <h2 className='text-xl font-bold'>Asignar Ciclos</h2>
-      <div className='flex w-full flex-col space-y-6 px-4 md:flex-row md:space-y-0 md:space-x-6'>
+      <div className='flex w-full flex-col justify-center space-y-6 px-4 md:flex-row md:space-y-0 md:space-x-6'>
         {isLoading ? (
           <>
             <CiclosSectionSkeleton />
-            <CiclosSectionSkeleton />
+            {/* // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO */}
+            {/* <CiclosSectionSkeleton /> */}
           </>
         ) : (
           <>
@@ -212,7 +225,8 @@ const CiclosAdmin = () => {
               </div>
             </div>
 
-            <div className='card border bg-red-500'>
+            {/* // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO */}
+            {/* <div className='card border bg-red-500'>
               <div className='card-body space-y-2'>
                 <h2 className='card-title justify-center'>Semestral</h2>
                 <label className='select select-md mx-auto max-w-sm border-white lg:min-w-sm'>
@@ -251,7 +265,7 @@ const CiclosAdmin = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
           </>
         )}
       </div>
@@ -269,14 +283,15 @@ const CiclosAdmin = () => {
                 <TextInputForm
                   label='Nombre del Ciclo'
                   value={newCiclo.nombre}
-                  placeholder='2026-2027, 2026B'
+                  placeholder='2026-2027, 2027-2028'
                   name='nombre_ciclo'
                   onChange={(e) =>
                     setNewCiclo({ ...newCiclo, nombre: e.target.value })
                   }
                   required={true}
                 />
-                <label className='select select-md mx-auto max-w-sm border-white lg:min-w-sm'>
+                {/* // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO */}
+                {/* <label className='select select-md mx-auto max-w-sm border-white lg:min-w-sm'>
                   <span className='label'>
                     Tipo de Ciclo <span className='text-rose-600'>*</span>
                   </span>
@@ -299,7 +314,7 @@ const CiclosAdmin = () => {
                     <option value={true}>Anual</option>
                     <option value={false}>Semestral</option>
                   </select>
-                </label>
+                </label> */}
                 <label className='input input-md mx-auto max-w-sm border-white lg:min-w-sm'>
                   <span className='label'>
                     Fecha Inicio <span className='text-rose-600'>*</span>

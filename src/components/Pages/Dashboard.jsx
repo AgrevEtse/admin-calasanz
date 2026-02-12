@@ -60,7 +60,8 @@ const Dashboard = () => {
           mortalComponent={null}
         />
 
-        <RoleBasedView
+        {/* // XXX: DESCOMENTAR CUANDO QUIERAN PAGINA DE IDUKAY */}
+        {/* <RoleBasedView
           adminComponent={
             <Link
               to='/dashboard/idukay'
@@ -70,8 +71,10 @@ const Dashboard = () => {
             </Link>
           }
           mortalComponent={null}
-        />
-        <RoleBasedView
+        /> */}
+
+        {/* // XXX: DESCOMENTAR CUANDO QUIERAN PAGINA DE PRECIOS */}
+        {/* <RoleBasedView
           adminComponent={
             <Link
               to='/dashboard/precios'
@@ -81,7 +84,7 @@ const Dashboard = () => {
             </Link>
           }
           mortalComponent={null}
-        />
+        /> */}
       </div>
     </div>
   )

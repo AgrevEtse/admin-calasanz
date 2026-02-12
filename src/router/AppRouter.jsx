@@ -24,8 +24,10 @@ import CiclosMortal from '@/components/Pages/Ciclos/CiclosMortal'
 import BajasList from '@/components/Pages/Bajas/BajasList'
 import BajasAlumnosList from '@/components/Pages/Bajas/BajasAlumnosList'
 import BajasForm from '@/components/Pages/Bajas/BajasForm'
-import Idukay from '@/components/Pages/Idukay'
-import Precios from '@/components/Pages/Precios'
+// XXX: DESCOMENTAR CUANDO QUIERAN PAGINA DE IDUKAY
+// import Idukay from '@/components/Pages/Idukay'
+// XXX: DESCOMENTAR CUANDO QUIERAN PAGINA DE PRECIOS
+// import Precios from '@/components/Pages/Precios'
 import NotFound404 from '@/components/Pages/NotFound404'
 
 const AppRouter = () => {
@@ -139,7 +141,8 @@ const AppRouter = () => {
                 />
               }
             />
-            <Route
+            {/* // XXX: DESCOMENTAR CUANDO QUIERAN PAGINA DE IDUKAY */}
+            {/* <Route
               path='idukay'
               element={
                 <RoleBasedView
@@ -147,8 +150,9 @@ const AppRouter = () => {
                   mortalComponent={<NotFound404 />}
                 />
               }
-            />
-            <Route
+            /> */}
+            {/* // XXX: DESCOMENTAR CUANDO QUIERAN PAGINA DE PRECIOS */}
+            {/* <Route
               path='precios'
               element={
                 <RoleBasedView
@@ -156,7 +160,7 @@ const AppRouter = () => {
                   mortalComponent={<NotFound404 />}
                 />
               }
-            />
+            /> */}
             <Route
               path='*'
               element={<NotFound404 />}

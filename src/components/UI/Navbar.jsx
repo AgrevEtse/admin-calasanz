@@ -146,7 +146,8 @@ const Navbar = () => {
               mortalComponent={null}
             />
 
-            <RoleBasedView
+            {/* // XXX: DESCOMENTAR CUANDO QUIERAN PAGINA DE IDUKAY */}
+            {/* <RoleBasedView
               adminComponent={
                 <li>
                   <Link to='/dashboard/idukay'>
@@ -160,8 +161,10 @@ const Navbar = () => {
                 </li>
               }
               mortalComponent={null}
-            />
-            <RoleBasedView
+            /> */}
+
+            {/* // XXX: DESCOMENTAR CUANDO QUIERAN PAGINA DE PRECIOS */}
+            {/* <RoleBasedView
               adminComponent={
                 <li>
                   <Link to='/dashboard/precios'>
@@ -175,7 +178,7 @@ const Navbar = () => {
                 </li>
               }
               mortalComponent={null}
-            />
+            /> */}
             <li>
               <button
                 className='btn btn-error text-white transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'

@@ -23,7 +23,8 @@ const ListStudentsAdmin = () => {
     searchParams.get('activeStudents') === '1' ? 1 : 0
   )
   const [cicloAnnual, setCicloAnnual] = useState('')
-  const [cicloBiannual, setCicloBiannual] = useState('')
+  // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+  // const [cicloBiannual, setCicloBiannual] = useState('')
   const [isLoading, setIsLoading] = useState(true)
 
   const fetchActualCiclos = useCallback(async () => {
@@ -33,9 +34,10 @@ const ListStudentsAdmin = () => {
       setCicloAnnual(dataCicloAnual.nombre)
       setCiclo(dataCicloAnual.nombre)
 
-      const resCicloBiannual = await fetchWithAuth('/ciclo/semestre')
-      const dataCicloBiannual = await resCicloBiannual.json()
-      setCicloBiannual(dataCicloBiannual.nombre)
+      // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+      // const resCicloBiannual = await fetchWithAuth('/ciclo/semestre')
+      // const dataCicloBiannual = await resCicloBiannual.json()
+      // setCicloBiannual(dataCicloBiannual.nombre)
     } catch (error) {
       console.error(error)
       toast.error('Error al obtener los ciclos escolares')
@@ -118,7 +120,8 @@ const ListStudentsAdmin = () => {
   )
 
   const annualCiclos = ciclos.filter((c) => c.es_anual)
-  const biannualCiclos = ciclos.filter((c) => !c.es_anual)
+  // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+  // const biannualCiclos = ciclos.filter((c) => !c.es_anual)
 
   return (
     <div className='mx-auto h-full w-full py-[5vh]'>
@@ -130,9 +133,11 @@ const ListStudentsAdmin = () => {
             value={grado}
             onChange={(e) => {
               setGrado(e.target.value)
-              e.target.value === 'bachillerato'
-                ? setCiclo(cicloBiannual)
-                : setCiclo(cicloAnnual)
+              setCiclo(cicloAnnual)
+              // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO Y QUITAR LO DE ARRIBA
+              // e.target.value === 'bachillerato'
+              //   ? setCiclo(cicloBiannual)
+              //   : setCiclo(cicloAnnual)
             }}
           >
             <option
@@ -144,7 +149,8 @@ const ListStudentsAdmin = () => {
             <option value='preescolar'>Preescolar</option>
             <option value='primaria'>Primaria</option>
             <option value='secundaria'>Secundaria</option>
-            <option value='bachillerato'>Bachillerato</option>
+            {/* // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO */}
+            {/* <option value='bachillerato'>Bachillerato</option> */}
           </select>
 
           <select
@@ -159,7 +165,16 @@ const ListStudentsAdmin = () => {
             >
               Selecciona un ciclo...
             </option>
-            {grado === 'bachillerato'
+            {annualCiclos.map((c) => (
+              <option
+                key={c.id}
+                value={c.nombre}
+              >
+                {c.nombre}
+              </option>
+            ))}
+            {/* // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO Y QUITAR LO DE ARRIBA */}
+            {/* {grado === 'bachillerato'
               ? biannualCiclos.map((c) => (
                   <option
                     key={c.id}
@@ -175,7 +190,7 @@ const ListStudentsAdmin = () => {
                   >
                     {c.nombre}
                   </option>
-                ))}
+                ))} */}
           </select>
 
           <label className='label text-warning'>

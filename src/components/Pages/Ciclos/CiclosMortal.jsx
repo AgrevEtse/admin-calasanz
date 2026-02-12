@@ -9,7 +9,8 @@ const CiclosMortal = () => {
   const fetchWithAuth = useFetchWithAuth()
 
   const [cicloAnual, setCicloAnual] = useState(null)
-  const [cicloSemestral, setCicloSemestral] = useState(null)
+  // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+  // const [cicloSemestral, setCicloSemestral] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
 
   const fetchCiclos = useCallback(async () => {
@@ -19,9 +20,10 @@ const CiclosMortal = () => {
       const dataCicloAnual = await resCicloAnual.json()
       setCicloAnual(dataCicloAnual)
 
-      const resCicloSemestral = await fetchWithAuth('/ciclo/semestre')
-      const dataCicloSemestral = await resCicloSemestral.json()
-      setCicloSemestral(dataCicloSemestral)
+      // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+      // const resCicloSemestral = await fetchWithAuth('/ciclo/semestre')
+      // const dataCicloSemestral = await resCicloSemestral.json()
+      // setCicloSemestral(dataCicloSemestral)
     } catch (error) {
       console.error('Error fetching ciclos:', error)
       toast.error('Error al cargar los ciclos.')
@@ -46,7 +48,8 @@ const CiclosMortal = () => {
         {isLoading ? (
           <>
             <CiclosSectionSkeleton />
-            <CiclosSectionSkeleton />
+            {/* // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO */}
+            {/* <CiclosSectionSkeleton /> */}
           </>
         ) : (
           <>
@@ -58,7 +61,8 @@ const CiclosMortal = () => {
                 </p>
               </div>
             </div>
-            <div className='card w-xs border bg-red-500'>
+            {/* // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO */}
+            {/* <div className='card w-xs border bg-red-500'>
               <div className='card-body'>
                 <h2 className='card-title justify-center'>Ciclo Semestral</h2>
                 <p className='text-center'>
@@ -67,7 +71,7 @@ const CiclosMortal = () => {
                     : 'No hay ciclo semestral actual'}
                 </p>
               </div>
-            </div>
+            </div> */}
           </>
         )}
       </div>

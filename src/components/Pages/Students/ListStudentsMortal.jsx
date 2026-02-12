@@ -70,7 +70,9 @@ const ListStudentsAdmin = () => {
   }
 
   const fetchActualCiclo = useCallback(async () => {
-    const grado = auth.user.rol === 'bachillerato' ? 'semestre' : 'anual'
+    const grado = 'anual'
+    // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO Y QUITAR LO DE ARRIBA
+    // const grado = auth.user.rol === 'bachillerato' ? 'semestre' : 'anual'
 
     try {
       const resCiclo = await fetchWithAuth(`/ciclo/${grado}`)
@@ -80,7 +82,8 @@ const ListStudentsAdmin = () => {
       console.error(error)
       toast.error('Error al obtener los ciclos escolares')
     }
-  }, [fetchWithAuth, auth.user.rol])
+    // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+  }, [fetchWithAuth /*, auth.user.rol*/])
 
   useEffect(() => {
     cambiarTitulo('Inscripciones')
@@ -108,7 +111,8 @@ const ListStudentsAdmin = () => {
   )
 
   const annualCiclos = ciclos.filter((c) => c.es_anual)
-  const biannualCiclos = ciclos.filter((c) => !c.es_anual)
+  // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO
+  // const biannualCiclos = ciclos.filter((c) => !c.es_anual)
 
   return (
     <div className='mx-auto h-full w-full py-[5vh]'>
@@ -126,7 +130,16 @@ const ListStudentsAdmin = () => {
             >
               Selecciona un ciclo
             </option>
-            {auth.user.rol === 'bachillerato'
+            {annualCiclos.map((c) => (
+              <option
+                key={c.id}
+                value={c.nombre}
+              >
+                {c.nombre}
+              </option>
+            ))}
+            {/* // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO Y QUITAR LO DE ARRIBA */}
+            {/* {auth.user.rol === 'bachillerato'
               ? biannualCiclos.map((c) => (
                   <option
                     key={c.id}
@@ -142,7 +155,7 @@ const ListStudentsAdmin = () => {
                   >
                     {c.nombre}
                   </option>
-                ))}
+                ))} */}
           </select>
 
           <label className='label text-warning'>

@@ -139,7 +139,8 @@ const EditHermanos = () => {
                     <option value='Preescolar'>Preescolar</option>
                     <option value='Primaria'>Primaria</option>
                     <option value='Secundaria'>Secundaria</option>
-                    <option value='Bachillerato'>Bachillerato</option>
+                    {/* // XXX: DESCOMENTAR CUANDO EXISTA BACHILLERATO */}
+                    {/* <option value='Bachillerato'>Bachillerato</option> */}
                   </select>
                 </label>
               </div>
