@@ -89,7 +89,7 @@ const EditHermanos = () => {
   }
 
   return (
-    <div className='card bg-base-100 mx-auto w-full border border-white px-0 shadow-sm lg:px-8'>
+    <div className='card bg-base-200 border-base-content mx-auto w-full border px-0 shadow-sm lg:px-8'>
       <div className='card-body'>
         <h2 className='card-title mb-6 items-center justify-center text-3xl'>
           Datos de los Hermanos
@@ -98,20 +98,20 @@ const EditHermanos = () => {
           {isLoading &&
             Array.from({ length: 6 }).map((_, index) => (
               <label
-                className='input skeleton mx-auto max-w-sm border-white lg:min-w-sm'
+                className='input skeleton border-base-content mx-auto max-w-sm lg:min-w-sm'
                 key={index}
               >
                 <span className='label skeleton'>
                   {'                              '}
                 </span>
-                <input className='skeleton border-white' />
+                <input className='skeleton border-base-content' />
               </label>
             ))}
           {!isLoading &&
             hermanos.map((hermano, index) => (
               <div
                 key={index}
-                className='card bg-base-200 gap-4 p-4 shadow-sm'
+                className='card bg-base-300 gap-4 p-4 shadow-sm'
               >
                 <h3 className='card-title text-xl'>Hermano {index + 1}</h3>
                 <TextInputForm
@@ -123,7 +123,7 @@ const EditHermanos = () => {
                   required={true}
                 />
 
-                <label className='select select-md m-auto mx-auto max-w-sm border-white lg:min-w-sm'>
+                <label className='select select-md border-base-content m-auto mx-auto max-w-sm lg:min-w-sm'>
                   <span className='label'>Escolaridad</span>
                   <select
                     value={hermano.nivel}
@@ -148,7 +148,7 @@ const EditHermanos = () => {
         </div>
         <div className='card-actions mt-4 justify-end'>
           <button
-            className='btn btn-primary transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
+            className='btn btn-success transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
             onClick={handleUpdate}
             disabled={isLoading}
           >

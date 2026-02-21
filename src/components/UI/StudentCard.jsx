@@ -28,14 +28,14 @@ const StudentCard = ({ student, ciclo }) => {
   }
 
   return (
-    <div className='card bg-primary text-primary-content shadow-primary mx-auto h-64 w-2xs border shadow-sm transition-shadow duration-200 ease-in-out hover:shadow-lg'>
+    <div className='card bg-base-300 text-base-content shadow-base mx-auto h-64 w-2xs border shadow-sm transition-shadow duration-200 ease-in-out hover:shadow-lg'>
       <div className='card-body'>
         <h2 className='card-title'>{curp}</h2>
         <p>{`${fullName}`}</p>
         <p>Escolaridad: {escolaridad}</p>
         <div className='card-actions justify-end'>
           <button
-            className='btn btn-secondary transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
+            className='btn btn-info transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
             onClick={() => {
               navigate(`/dashboard/inscripciones/${curp}/${ciclo}`)
             }}

@@ -120,7 +120,7 @@ const ListStudentsAdmin = () => {
       <div className='my-8 flex flex-col items-center space-y-4'>
         <div className='flex w-full max-w-2xl flex-row items-center justify-center space-x-4'>
           <select
-            className='select w-full max-w-xs'
+            className='select border-base-content w-full max-w-xs'
             value={ciclo}
             onChange={(e) => setCiclo(e.target.value)}
           >
@@ -158,19 +158,19 @@ const ListStudentsAdmin = () => {
                 ))} */}
           </select>
 
-          <label className='label text-warning'>
+          <label className='label text-secondary'>
             Inactivo
             <input
               type='checkbox'
               checked={activeStudents}
               disabled={!ciclo}
               onChange={handleActiveToggle}
-              className='toggle toggle-lg border-warning bg-warning checked:border-warning checked:bg-warning text-warning-content'
+              className='toggle toggle-lg border-secondary bg-secondary checked:border-secondary checked:bg-secondary text-secondary-content'
             />
             Activo
           </label>
         </div>
-        <label className='input input-md'>
+        <label className='input input-md border-base-content'>
           <span className='label'>
             <MagnifyingGlassIcon className='h-5 w-5' />
           </span>
@@ -201,7 +201,7 @@ const ListStudentsAdmin = () => {
         {filteredStudents.length === 0 && !isLoading && (
           <>
             <div className='w-2xs'></div>
-            <div className='w-2xs text-center text-gray-500'>
+            <div className='text-base-content w-2xs text-center'>
               No se encontraron alumnos.
             </div>
             <div className='w-2xs'></div>

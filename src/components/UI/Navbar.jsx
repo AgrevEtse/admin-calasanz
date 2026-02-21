@@ -35,7 +35,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='navbar bg-primary text-primary-content rounded-box fixed top-0 left-1/2 z-100 mx-auto h-10 w-[90vw] -translate-x-1/2 px-6 shadow-sm'>
+    <nav className='navbar bg-neutral text-neutral-content rounded-box fixed top-0 left-1/2 z-100 mx-auto h-10 w-[90vw] -translate-x-1/2 px-6 shadow-sm'>
       <div className='flex-1 space-x-4'>
         <button
           onClick={() => navigate(-1)}
@@ -48,7 +48,7 @@ const Navbar = () => {
           className='hidden md:inline'
         >
           <button
-            className='btn btn-ghost text-xl transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
+            className='btn btn-secondary text-xl transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
             title='Calasanz Admin'
           >
             Calasanz Admin
@@ -80,7 +80,7 @@ const Navbar = () => {
 
       {isMenuOpen && (
         <div
-          className='bg-base-200 rounded-box absolute top-full right-4 z-50 mx-auto mt-2 flex w-52 flex-col items-center justify-center p-4 text-center shadow-lg'
+          className='bg-neutral text-neutral-content rounded-box absolute top-full right-4 z-50 mx-auto mt-2 flex w-52 flex-col items-center justify-center p-4 text-center shadow-lg'
           ref={menuRef}
         >
           <div className='flex flex-col items-center'>
@@ -96,7 +96,7 @@ const Navbar = () => {
             <li>
               <Link to='/dashboard/inscripciones'>
                 <button
-                  className='btn btn-accent transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
+                  className='btn btn-info transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
                   onClick={handleButtonHamburguer}
                 >
                   Inscripciones
@@ -106,7 +106,7 @@ const Navbar = () => {
             <li>
               <Link to='/dashboard/ciclos'>
                 <button
-                  className='btn btn-accent transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
+                  className='btn btn-info transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
                   onClick={handleButtonHamburguer}
                 >
                   Ciclos
@@ -119,7 +119,7 @@ const Navbar = () => {
                 <li>
                   <Link to='/dashboard/bajas'>
                     <button
-                      className='btn btn-accent transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
+                      className='btn btn-info transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
                       onClick={handleButtonHamburguer}
                     >
                       Dar de Baja
@@ -135,7 +135,7 @@ const Navbar = () => {
                 <li>
                   <Link to='/dashboard/bajas/alumnos'>
                     <button
-                      className='btn btn-accent transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
+                      className='btn btn-info transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
                       onClick={handleButtonHamburguer}
                     >
                       Bajas Alumnos
@@ -152,7 +152,7 @@ const Navbar = () => {
                 <li>
                   <Link to='/dashboard/idukay'>
                     <button
-                      className='btn btn-accent transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
+                      className='btn btn-info transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
                       onClick={handleButtonHamburguer}
                     >
                       Idukay
@@ -169,7 +169,7 @@ const Navbar = () => {
                 <li>
                   <Link to='/dashboard/precios'>
                     <button
-                      className='btn btn-accent transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
+                      className='btn btn-info transition-transform duration-200 ease-in-out hover:scale-105 active:scale-105'
                       onClick={handleButtonHamburguer}
                     >
                       Precios
